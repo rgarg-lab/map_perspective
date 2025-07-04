@@ -21,26 +21,16 @@ An interactive world map that shows top news headlines by country and category, 
 2. Open `script.js`
 3. Replace:
    ```js
-   const API_KEY = "ea0476bf230a48fb837556f86ac414db";
+   const API_KEY = "Enter Your api";
    ```
    with your actual key.
 
-##  Valid Country Codes
-- `IN` – India
-- `US` – United States
-- `GB` – UK
-- `FR` – France
-- `JP` – Japan
-- `CA` – Canada
 
 > Use 2-letter ISO codes only
 
 ## 📸 Screenshot
 
-*You can insert a screenshot here later!*
-
-##  Fun Tip
-Try combining this with JokeAPI, Giphy API, or Cat API to make a fun news explorer!
+![image](https://github.com/user-attachments/assets/294e61fa-c862-445f-bdf5-a62d20aceafc)
 
 ##  License
 This project is open source and free to use.
