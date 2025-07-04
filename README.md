@@ -25,6 +25,11 @@ An interactive world map that shows top news headlines by country and category, 
    ```
    with your actual key.
 
+## API USED
+1. NewsAPI
+2. GeminiAPI
+3. GnewsAPI
+4. leafletAPI
 
 > Use 2-letter ISO codes only
 
