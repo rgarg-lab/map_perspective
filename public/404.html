@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>404 - Lost in the Newsverse</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #0f0f0f, #1f1f1f);
+      color: #fff;
+      font-family: 'Segoe UI', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      flex-direction: column;
+      overflow: hidden;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 6em;
+      margin: 0;
+      animation: pop 0.5s ease-out;
+    }
+
+    @keyframes pop {
+      0% { transform: scale(0.5); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    p {
+      font-size: 1.5em;
+      margin-top: 10px;
+      white-space: nowrap;
+      overflow: hidden;
+      border-right: 2px solid #0bf;
+      width: 0;
+      animation: typing 4s steps(40, end) forwards;
+    }
+
+    @keyframes typing {
+      from { width: 0 }
+      to { width: 100% }
+    }
+
+    .headline-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 200%;
+      height: 100%;
+      font-size: 2em;
+      color: rgba(255, 255, 255, 0.03);
+      animation: scroll-left 30s linear infinite;
+      white-space: nowrap;
+    }
+
+    @keyframes scroll-left {
+      from { transform: translateX(0%); }
+      to { transform: translateX(-50%); }
+    }
+
+    a {
+      color: #0bf;
+      text-decoration: none;
+      margin-top: 2em;
+      font-size: 1.2em;
+      background: rgba(255, 255, 255, 0.05);
+      padding: 10px 20px;
+      border-radius: 10px;
+      transition: all 0.2s ease;
+    }
+
+    a:hover {
+      background: #0bf;
+      color: black;
+      transform: scale(1.1) rotate(-1deg);
+    }
+
+    button {
+      margin-top: 1em;
+      background: none;
+      border: 2px solid #0bf;
+      padding: 10px 20px;
+      color: #0bf;
+      font-size: 1em;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      animation: shake 0.3s infinite;
+      background: #0bf;
+      color: #000;
+    }
+
+    @keyframes shake {
+      0% { transform: translate(1px, 1px); }
+      25% { transform: translate(-1px, -2px); }
+      50% { transform: translate(-3px, 0px); }
+      75% { transform: translate(3px, 2px); }
+      100% { transform: translate(1px, -1px); }
+    }
+  </style>
+</head>
+<body>
+  <div class="headline-bg">
+    📢 Breaking News • World Events • Error Alert • You're Off the Grid • Where Did the News Go? • Tap to Recenter •
+  </div>
+
+  <h1>404</h1>
+  <p>You’ve wandered into uncharted headlines...</p>
+  <a href="index.html">🗞️ Return to the Front Page</a>
+  <button onclick="speakError()">🔊 Tell me what happened</button>
+
+  <script>
+    function speakError() {
+      const msg = new SpeechSynthesisUtterance("Error 404. The page you're looking for has been lost in the newsverse. Click the button to return to the front page.");
+      msg.lang = "en-US";
+      speechSynthesis.speak(msg);
+    }
+  </script>
+</body>
+</html>
