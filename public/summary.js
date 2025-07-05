@@ -8,7 +8,7 @@ async function generateAndShowSummary() {
   }
 
   try {
-    const res = await fetch("http://localhost:3000/api/summarize", {
+    const res = await fetch("https://news-summary-api.onrender.com/api/summarize", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ headlines })
