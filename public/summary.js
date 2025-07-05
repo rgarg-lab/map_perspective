@@ -23,9 +23,9 @@ async function generateAndShowSummary() {
 
     // Set text
     document.getElementById("summaryText").innerText = summary;
-document.getElementById("colorblindBtn").style.disable = "none";
-    document.getElementById("narrateBtn").style.disable = "none";
-    document.getElementById("tutorialBtn").style.disable = "none";
+document.getElementById("colorblindBtn").style.display = "none";
+    document.getElementById("narrateBtn").style.display = "none";
+    document.getElementById("tutorialBtn").style.display = "none";
   } catch (err) {
     console.error("❌ Summary fetch failed:", err);
     alert("Failed to generate summary.");
