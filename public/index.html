@@ -4,19 +4,27 @@
   <title>World News Map</title>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Leaflet CSS -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+
   <div id="controls">
     <label>Enter Topic:</label><br>
     <input type="text" id="topicInput" placeholder="e.g., Ukraine War"><br><br>
     <button onclick="getNews()">Get News POV</button>
   </div>
+
   <div id="map"></div>
 
+  <!-- JS Scripts -->
   <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script src="biasMap.js"></script>       <!-- ✅ Load this before newscall.js -->
   <script src="map.js"></script>
   <script src="newscall.js"></script>
+
 </body>
 </html>
+
