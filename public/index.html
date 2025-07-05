@@ -22,10 +22,32 @@
   <div id="map"></div>
   <div id="newsPanel" class="sidebar"></div>
 
+<div id="newsView" style="display: none">
+  <div id="newsColumns">
+    <div class="column" id="left-column">
+      <h2>Left</h2>
+    </div>
+    <div class="column" id="center-column">
+      <h2>Center</h2>
+    </div>
+    <div class="column" id="right-column">
+      <h2>Right</h2>
+    </div>
+    <div class="column" id="local-column">
+      <h2>Local</h2>
+    </div>
+    <div class="column" id="global-column">
+      <h2>Global</h2>
+    </div>
+  </div>
+</div>
+
+
   <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
   <script src="biasmap.js"></script>
   <script src="map.js"></script>
   <script src="newscall.js"></script>
   <script src="accessibility.js"></script>
+  <script src="splitNewsByBias.js"></script>
 </body>
 </html>
