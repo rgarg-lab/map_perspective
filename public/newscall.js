@@ -1,5 +1,6 @@
 async function getNews() {
   const topic = document.getElementById("topicInput").value;
+
   if (!topic || !countryCode) {
     alert("Please click a country on the map and enter a topic.");
     return;
@@ -11,8 +12,7 @@ async function getNews() {
   setTimeout(async () => {
     document.getElementById("loading").style.display = "none";
 
-    const API_KEY = "pub_a34e5950edf9462aa8a5d14c4c79fe98";
-    const apiUrl = `https://newsdata.io/api/1/news?apikey=${API_KEY}&q=${encodeURIComponent(topic)}&country=${countryCode}&language=en`;
+    const apiUrl = `/api/news?topic=${encodeURIComponent(topic)}&country=${countryCode}`;
 
     try {
       const res = await fetch(apiUrl);
