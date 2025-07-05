@@ -85,4 +85,6 @@ app.post('/api/summarize', async (req, res) => {
 
 app.listen(PORT, () => {
   console.log(`🚀 Server running at http://localhost:${PORT}`);
+  console.log("🔑 Using NewsData.io API key:", process.env.NEWS_API_KEY);
 });
+
