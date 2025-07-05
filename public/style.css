@@ -38,7 +38,7 @@
 #controls input[type="text"] {
   padding: 10px;
   font-size: 1em;
-  width: 100%;
+  max-width: 250px;
   margin-top: 5px;
   border-radius: 8px;
   border: 1px solid #ccc;
