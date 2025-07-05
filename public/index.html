@@ -78,6 +78,10 @@
     .replies .comment {
       background-color: #f0f2f5;
     }
+    #langSelector {
+      padding: 6px;
+      margin-bottom: 20px;
+    }
   </style>
 </head>
 <body>
@@ -95,6 +99,17 @@
     <button id="colorblindBtn" onclick="toggleColorblindMode()">🎨 Toggle Colorblind Mode</button>
     <button id="narrateBtn" onclick="speakPage()">🗣️ Narrate Page</button>
     <button id="tutorialBtn" onclick="tutorial()"> Start Tutorial! </button>
+    <div id="accessibility-controls">
+    <button onclick="toggleColorblindMode()">🎨 Toggle Colorblind Mode</button>
+    <button onclick="speakPage()">🗣️ Narrate Page</button>
+    <label for="langSelector">🌐 Choose Language:</label>
+    <select id="langSelector">
+      <option value="en">English</option>
+      <option value="hi">Hindi</option>
+      <option value="es">Spanish</option>
+      <option value="fr">French</option>
+      <option value="de">German</option>
+    </select>
   </div>
 
   <div id="controls">
