@@ -1,4 +1,4 @@
-async function summarizeHeadlinesAndShowImage() {
+async function generateAndShowSummary() {
   const allCards = document.querySelectorAll(".news-card h3, .article-card h4");
   const headlines = Array.from(allCards).map(card => card.textContent.trim());
 
@@ -16,37 +16,22 @@ async function summarizeHeadlinesAndShowImage() {
 
     const data = await res.json();
     const summary = data.summary || "No summary available.";
-    drawSummaryImage(summary);
+
+    // Hide main UI, show summary
+    document.getElementById("newsView").style.display = "none";
+    document.getElementById("summaryPage").style.display = "block";
+
+    // Set text
+    document.getElementById("summaryText").innerText = summary;
+
   } catch (err) {
     console.error("❌ Summary fetch failed:", err);
     alert("Failed to generate summary.");
   }
 }
-function drawSummaryImage(summary) {
-  const canvas = document.getElementById("summaryCanvas");
-  const ctx = canvas.getContext("2d");
-  canvas.style.display = "block";
 
-  ctx.fillStyle = "#fffaf0";
-  ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-  ctx.fillStyle = "#333";
-  ctx.font = "20px Arial";
-  ctx.fillText("📰 Summary of Headlines", 20, 40);
-
-  ctx.font = "16px sans-serif";
-  const words = summary.split(" ");
-  let line = "", x = 20, y = 70;
-
-  words.forEach(word => {
-    const testLine = line + word + " ";
-    if (ctx.measureText(testLine).width > canvas.width - 40) {
-      ctx.fillText(line, x, y);
-      line = word + " ";
-      y += 25;
-    } else {
-      line = testLine;
-    }
-  });
-  ctx.fillText(line, x, y);
+// Optional: Go back to main news view
+function goBack() {
+  document.getElementById("summaryPage").style.display = "none";
+  document.getElementById("newsView").style.display = "block";
 }
