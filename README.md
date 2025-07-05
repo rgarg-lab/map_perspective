@@ -30,17 +30,16 @@ Go to the website: https://news-perspective.onrender.com/
  -  Relevant headlines will now be visible, now you can generate an AI Summary as well.
 
 ## API USED
-1. NewsAPI
+1. Newsdata.io
 2. GeminiAPI
-3. GnewsAPI
-4. leafletAPI
+3. leafletAPI
 
 ## 📸 Screenshot
 
 ![image](https://github.com/user-attachments/assets/c1a26815-8621-4485-807d-1829e30e7640)
-![image](https://github.com/user-attachments/assets/1636a4a5-ff7c-4806-b7ca-37075602fce6)
-![image](https://github.com/user-attachments/assets/8abda3ba-bbd5-42c7-a94c-1dcd0e09741f)
+![WhatsApp Image 2025-07-06 at 03 48 26_0fc68818](https://github.com/user-attachments/assets/d07c7f00-0bc2-4b7a-90f7-a7445454e4bc)
 ![image](https://github.com/user-attachments/assets/32dca334-83b6-4180-957d-22d373bfb22d)
+![WhatsApp Image 2025-07-06 at 03 48 55_7c4a23ab](https://github.com/user-attachments/assets/a1c31351-7ae3-4f23-a587-8dd3f2a5820c)
 
 ##  License
 This project is open source and free to use.
