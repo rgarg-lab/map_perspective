@@ -9,21 +9,15 @@ In this era where news coverage has become highly sensationalised, we aim to pro
 -  AI summaries to aid readers surf through important headlines quickly and easily
 -  Discussion section to engage in constructive discourse with other users
 
-##  How to Use
-1. Download the project files
-2. Open `index.html` in your browser
-3. Enter a valid 2-letter country code (e.g., `IN`, `US`, `FR`)
-4. Search for desired news using search bar
-5. Click anywhere on the map to get headlines!
+## Setup
+Go to the website: https://news-perspective.onrender.com/
 
-##  Setup
-1. Get a free API key from [https://newsapi.org](https://newsapi.org)
-2. Open `script.js`
-3. Replace:
-   ```js
-   const API_KEY = "Enter Your api";
-   ```
-   with your actual key.
+##  How to Use
+ -  Open the website
+ -  In the searchbar, type the issue you wish to learn about
+ -  Next, click on a country on the interactive map given
+ -  Click on "Check Perspectives"
+ -  Relevant headlines will now be visible, now you can generate an AI Summary as well.
 
 ## API USED
 1. NewsAPI
