@@ -9,6 +9,15 @@ In this era where news coverage has become highly sensationalised, we aim to pro
 -  AI summaries to aid readers surf through important headlines quickly and easily
 -  Discussion section to engage in constructive discourse with other users
 
+## Tasks Employed
+ -  Creative 404/Error Handling
+ -  Dark Mode Support
+ -  Custom Loading States
+ -  Dynamic Theming Based on API Data
+ -  The Story Mode
+ -  Text-to-Speech for Content
+ -  Parallel Interaction Mode
+
 ## Setup
 Go to the website: https://news-perspective.onrender.com/
 
