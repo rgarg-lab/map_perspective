@@ -208,7 +208,7 @@
             <button class="buttonn" onclick="toggleReplyBox('${docSnap.id}')">Reply</button>
             <div id="reply-box-${docSnap.id}" class="reply-box" style="display:none;">
               <textarea id="reply-input-${docSnap.id}" placeholder="Write a reply..."></textarea>
-              <button onclick="postReply('${docSnap.id}')">Post Reply</button>
+              <button class="buttonn" onclick="postReply('${docSnap.id}')">Post Reply</button>
             </div>` : "";
 
           commentDiv.innerHTML = `
