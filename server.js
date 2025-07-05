@@ -31,6 +31,7 @@ app.get('/api/news', async (req, res) => {
 
   try {
     const url = `https://newsdata.io/api/1/news?apikey=${apiKey}&q=${encodeURIComponent(topic)}&country=${country}&language=en`;
+    console.log("🔗 Fetching from:", url);
     const response = await fetch(url);
     const data = await response.json();
 
