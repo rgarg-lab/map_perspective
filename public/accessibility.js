@@ -22,3 +22,6 @@ function speakText(text) {
   utterance.lang = "en-US";
   speechSynthesis.speak(utterance);
 }
+document.getElementById("darkModeToggle").addEventListener("change", function () {
+  document.body.classList.toggle("dark-mode");
+});
