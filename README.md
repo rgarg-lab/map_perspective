@@ -25,8 +25,6 @@ Go to the website: https://news-perspective.onrender.com/
 3. GnewsAPI
 4. leafletAPI
 
-> Use 2-letter ISO codes only
-
 ## 📸 Screenshot
 
 ![image](https://github.com/user-attachments/assets/294e61fa-c862-445f-bdf5-a62d20aceafc)
