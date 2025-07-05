@@ -4,16 +4,48 @@ const fetch = require('node-fetch');
 require('dotenv').config();
 
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 app.use(cors());
 app.use(express.json());
 app.use(express.static('public'));
 
+// 👇 Serve frontend
 app.get('/', (req, res) => {
   res.sendFile(__dirname + '/public/index.html');
 });
 
+// ✅ NEW: Fetch news securely from NewsData.io
+app.get('/api/news', async (req, res) => {
+  const topic = req.query.topic;
+  const country = req.query.country || 'us';
+  const apiKey = process.env.NEWS_API_KEY;
+
+  if (!topic) {
+    return res.status(400).json({ error: "Missing topic parameter." });
+  }
+
+  if (!apiKey) {
+    return res.status(500).json({ error: "API key not configured." });
+  }
+
+  try {
+    const url = `https://newsdata.io/api/1/news?apikey=${apiKey}&q=${encodeURIComponent(topic)}&country=${country}&language=en`;
+    const response = await fetch(url);
+    const data = await response.json();
+
+    if (data.status !== "success") {
+      return res.status(500).json({ error: "Failed to fetch news." });
+    }
+
+    res.json(data);
+  } catch (err) {
+    console.error("❌ News fetch error:", err);
+    res.status(500).json({ error: "Something went wrong while fetching news." });
+  }
+});
+
+// ✅ Existing Gemini summarization route
 app.post('/api/summarize', async (req, res) => {
   const { headlines } = req.body;
 
@@ -49,6 +81,12 @@ app.post('/api/summarize', async (req, res) => {
     console.error("❌ Gemini API error:", err);
     res.status(500).json({ error: "Failed to summarize headlines." });
   }
+});
+
+app.listen(PORT, () => {
+  console.log(`🚀 Server running at http://localhost:${PORT}`);
+});
+
 });
 
 app.listen(PORT, () => {
