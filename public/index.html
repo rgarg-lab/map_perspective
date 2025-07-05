@@ -78,10 +78,7 @@
     .replies .comment {
       background-color: #f0f2f5;
     }
-    #langSelector {
-      padding: 6px;
-      margin-bottom: 20px;
-    }
+    
   </style>
 </head>
 <body>
@@ -90,7 +87,7 @@
     <input type="checkbox" id="darkModeToggle" />
     <span class="slider"></span>
   </label>
-  <span> "Dark Mode" </span>
+  <span id="mode-label">Auto Mode</span>
 </div>
   <div id="loading" class="loading-overlay" style="display:none;">
     Fetching global perspectives... 🌍📰
@@ -101,17 +98,8 @@
     <button id="tutorialBtn" onclick="tutorial()"> Start Tutorial! </button>
     <div id="accessibility-controls">
     <button onclick="toggleColorblindMode()">🎨 Toggle Colorblind Mode</button>
-    <button onclick="speakPage()">🗣️ Narrate Page</button>
-    <label for="langSelector">🌐 Choose Language:</label>
-    <select id="langSelector">
-      <option value="en">English</option>
-      <option value="hi">Hindi</option>
-      <option value="es">Spanish</option>
-      <option value="fr">French</option>
-      <option value="de">German</option>
-    </select>
+    <button onclick="speakPage()">🗣️ Narrate Page</button>    
   </div>
-
   <div id="controls">
     <label>Enter Topic:</label><br>
     <input type="text" id="topicInput" placeholder="e.g., Ukraine War"><br><br>
@@ -292,5 +280,28 @@
 
     loadComments();
   </script>
+  <script>
+  const toggle = document.getElementById('darkModeToggle');
+  const modeLabel = document.getElementById('mode-label');
+
+  // Function to set mode based on time
+  function setAutoTheme() {
+    const hour = new Date().getHours();
+    const isDarkTime = (hour >= 18 || hour < 6);
+
+    document.body.classList.toggle('dark-mode', isDarkTime);
+    toggle.checked = isDarkTime;
+    modeLabel.textContent = isDarkTime ? "Dark Mode (Auto)" : "Light Mode (Auto)";
+  }
+
+  // Manual toggle
+  toggle.addEventListener('change', () => {
+    document.body.classList.toggle('dark-mode', toggle.checked);
+    modeLabel.textContent = toggle.checked ? "Dark Mode (Manual)" : "Light Mode (Manual)";
+  });
+
+  // Run initially
+  setAutoTheme();
+</script>
 </body>
 </html>
