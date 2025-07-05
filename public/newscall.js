@@ -5,52 +5,35 @@ function getCleanDomain(url) {
     return "unknown";
   }
 }
-
 async function getNews() {
   const topic = document.getElementById("topicInput").value;
-  const newsPanel = document.getElementById("newsPanel");
-  newsPanel.innerHTML = ""; // Clear panel
-
   if (!topic || !countryCode) {
     alert("Please click a country on the map and enter a topic.");
     return;
   }
 
-  const API_KEY = "pub_a34e5950edf9462aa8a5d14c4c79fe98";
-  const apiUrl = `https://newsdata.io/api/1/news?apikey=${API_KEY}&q=${encodeURIComponent(topic)}&country=${countryCode}&language=en`;
+  // Show temporary loading message
+  document.getElementById("controls").innerHTML = "<p>Loading news POV... ⏳</p>";
 
-  try {
-    const res = await fetch(apiUrl);
-    const data = await res.json();
+  // Wait 7 seconds before fetching (simulate animation/loading)
+  setTimeout(async () => {
+    const API_KEY = "pub_a34e5950edf9462aa8a5d14c4c79fe98";
+    const apiUrl = `https://newsdata.io/api/1/news?apikey=${API_KEY}&q=${encodeURIComponent(topic)}&country=${countryCode}&language=en`;
 
-    if (data.status === "success" && data.results?.length) {
-      const articles = data.results.slice(0, 5);
+    try {
+      const res = await fetch(apiUrl);
+      const data = await res.json();
 
-      articles.forEach((article) => {
-        const domain = getCleanDomain(article.link);
-        const bias = biasMap[domain] || "Unknown";
-
-        const card = document.createElement("div");
-        card.className = "news-card";
-
-        card.innerHTML = `
-  <h3>${article.title}</h3>
-  <p><em>${article.creator?.[0] || "Unknown"} | ${new Date(article.pubDate).toLocaleDateString()}</em></p>
-  <p>${article.description || "No description available."}</p>
-  <p><strong>Source:</strong> ${domain}</p>
-  <p><strong>Bias:</strong> ${bias}</p>
-  <a href="${article.link}" target="_blank">Read more 🔗</a>
-  <button onclick="speakText('${article.title.replace(/'/g, "")}')">🔊 Read Headline</button>
-`;
-
-
-        newsPanel.appendChild(card);
-      });
-    } else {
-      newsPanel.innerHTML = "<p>No articles found for this country/topic.</p>";
+      if (data.status === "success" && data.results?.length) {
+        // Call the function from splitNewsByBias.js
+        splitAndDisplayNews(data.results.slice(0, 15)); // Limit to 15 articles max
+      } else {
+        alert("⚠️ No news found for this topic/country.");
+      }
+    } catch (err) {
+      console.error("❌ News fetch error:", err);
+      alert("Something went wrong while fetching news.");
     }
-  } catch (error) {
-    console.error("❌ Failed to fetch news:", error);
-    newsPanel.innerHTML = "<p>Error fetching articles.</p>";
-  }
+  }, 7000); // delay in milliseconds (7000ms = 7s)
 }
+
