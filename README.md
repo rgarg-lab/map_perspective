@@ -15,6 +15,7 @@ In this era where news coverage has become highly sensationalised, we aim to pro
  -  Custom Loading States
  -  Dynamic Theming Based on API Data
  -  The Story Mode
+ -  Voice Navigation and Accessibility Features
  -  Text-to-Speech for Content
  -  Parallel Interaction Mode
 
