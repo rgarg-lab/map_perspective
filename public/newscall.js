@@ -1,10 +1,3 @@
-function getCleanDomain(url) {
-  try {
-    return new URL(url).hostname.replace("www.", "").toLowerCase();
-  } catch {
-    return "unknown";
-  }
-}
 async function getNews() {
   const topic = document.getElementById("topicInput").value;
   if (!topic || !countryCode) {
@@ -12,11 +5,12 @@ async function getNews() {
     return;
   }
 
-  // Show temporary loading message
-  document.getElementById("controls").innerHTML = "<p>Loading news POV... ⏳</p>";
+  // Show loading animation
+  document.getElementById("loading").style.display = "flex";
 
-  // Wait 7 seconds before fetching (simulate animation/loading)
   setTimeout(async () => {
+    document.getElementById("loading").style.display = "none";
+
     const API_KEY = "pub_a34e5950edf9462aa8a5d14c4c79fe98";
     const apiUrl = `https://newsdata.io/api/1/news?apikey=${API_KEY}&q=${encodeURIComponent(topic)}&country=${countryCode}&language=en`;
 
@@ -25,8 +19,7 @@ async function getNews() {
       const data = await res.json();
 
       if (data.status === "success" && data.results?.length) {
-        // Call the function from splitNewsByBias.js
-        splitAndDisplayNews(data.results.slice(0, 15)); // Limit to 15 articles max
+        splitAndDisplayNews(data.results.slice(0, 15));
       } else {
         alert("⚠️ No news found for this topic/country.");
       }
@@ -34,6 +27,5 @@ async function getNews() {
       console.error("❌ News fetch error:", err);
       alert("Something went wrong while fetching news.");
     }
-  }, 7000); // delay in milliseconds (7000ms = 7s)
+  }, 7000); // 7 second animation
 }
-
