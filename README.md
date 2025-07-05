@@ -27,7 +27,10 @@ Go to the website: https://news-perspective.onrender.com/
 
 ## 📸 Screenshot
 
-![image](https://github.com/user-attachments/assets/294e61fa-c862-445f-bdf5-a62d20aceafc)
+![image](https://github.com/user-attachments/assets/c1a26815-8621-4485-807d-1829e30e7640)
+![image](https://github.com/user-attachments/assets/1636a4a5-ff7c-4806-b7ca-37075602fce6)
+![image](https://github.com/user-attachments/assets/8abda3ba-bbd5-42c7-a94c-1dcd0e09741f)
+![image](https://github.com/user-attachments/assets/32dca334-83b6-4180-957d-22d373bfb22d)
 
 ##  License
 This project is open source and free to use.
