@@ -16,38 +16,40 @@ async function summarizeHeadlinesAndShowImage() {
 
     const data = await res.json();
     const summary = data.summary || "No summary available.";
-    drawSummaryImage(summary);
+
+    // Show summary as text
+    document.getElementById("summaryText").innerText = summary;
+drawSummaryImage(summary);
   } catch (err) {
     console.error("❌ Summary fetch failed:", err);
     alert("Failed to generate summary.");
   }
 }
-function drawSummaryImage(summary) {
-  const canvas = document.getElementById("summaryCanvas");
-  const ctx = canvas.getContext("2d");
-  canvas.style.display = "block";
+async function summarizeHeadlinesAndShowImage() {
+  const allCards = document.querySelectorAll(".news-card h3, .article-card h4");
+  const headlines = Array.from(allCards).map(card => card.textContent.trim());
 
-  ctx.fillStyle = "#fffaf0";
-  ctx.fillRect(0, 0, canvas.width, canvas.height);
+  if (headlines.length === 0) {
+    alert("No headlines available to summarize.");
+    return;
+  }
 
-  ctx.fillStyle = "#333";
-  ctx.font = "20px Arial";
-  ctx.fillText("📰 Summary of Headlines", 20, 40);
+  try {
+    const res = await fetch("http://localhost:3000/api/summarize", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ headlines })
+    });
 
-  ctx.font = "16px sans-serif";
-  const words = summary.split(" ");
-  let line = "", x = 20, y = 70;
+    const data = await res.json();
+    const summary = data.summary || "No summary available.";
 
-  words.forEach(word => {
-    const testLine = line + word + " ";
-    if (ctx.measureText(testLine).width > canvas.width - 40) {
-      ctx.fillText(line, x, y);
-      line = word + " ";
-      y += 25;
-    } else {
-      line = testLine;
-    }
-  });
-  ctx.fillText(line, x, y);
+    // ✅ Display summary text in a styled div
+    const summaryDiv = document.getElementById("summaryText");
+    summaryDiv.innerText = summary;
+    summaryDiv.style.display = "block";
+  } catch (err) {
+    console.error("❌ Summary fetch failed:", err);
+    alert("Failed to generate summary.");
+  }
 }
-
